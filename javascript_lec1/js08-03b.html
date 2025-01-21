@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csv파일업로드분석(내장객체)</title>
+  </head>
+  <body>
+    <input type="file" id="csvFile" accept=".csv,.txt" multiple />
+    <button id="uploadBtn">업로드</button>
+    <hr />
+    <ol id="output"></ol>
+    <script>
+      const inp = document.getElementById("csvFile");
+      inp.addEventListener("change", () => {
+        // Array.from(inp) 유사배열을 배열로 바꿈
+        const file = inp.files;
+        const ul = document.getElementById("output");
+
+        for (let i = 0; i < file.length; i++) {
+          const li = document.createElement("li");
+          ul.appendChild(li);
+          li.innerHTML = `${file[i].name}</br>Size: ${file[i].size}</br>Type: ${
+            file[i].type.split("/")[1]
+          } `;
+        }
+      });
+    </script>
+  </body>
+</html>

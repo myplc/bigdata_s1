@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      h1 {
+        display: inline-block;
+        background-color: aquamarine;
+        border-radius: 15px;
+        padding: 5px;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="op">새로운 도전!!</h1>
+    <script>
+      const h1 = document.getElementById("op");
+      let opacity = 0;
+      function fadeIn() {
+        opacity += 0.1;
+        h1.style.opacity = opacity;
+        if (opacity <= 1) {
+          setTimeout(fadeIn, 100);
+        }
+      }
+      fadeIn();
+    </script>
+  </body>
+</html>

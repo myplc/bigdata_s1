@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- input#csvFile+button#uploadBtn{분석}+pre#output -->
+    <input type="file" id="csvFile" />
+    <button id="uploadBtn">xlsx 분석</button>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <pre id="output"></pre>
+
+    <script>
+      const show = (t) => document.querySelector(t);
+      show("#uploadBtn").addEventListener("click", () => {
+        const inp = show("#csvFile");
+        const file = inp.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const data0 = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data0, { type: "array" });
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            const json = XLSX.utils.sheet_to_json(worksheet);
+            console.log(json);
+            show("#output").textContent = JSON.stringify(json, null, 2);
+
+            const showChart = (data) => {
+              const ctx = document.getElementById("myChart").getContext("2d");
+              const scatterData = {
+                datasets: [
+                  {
+                    label: "Father vs Son Height",
+                    data: data.map((item) => ({ x: item.Father, y: item.Son })),
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1,
+                  },
+                ],
+              };
+              new Chart(ctx, {
+                type: "scatter",
+                data: scatterData,
+                options: {
+                  scales: {
+                    x: {
+                      type: "linear",
+                      position: "bottom",
+                      title: { display: true, text: "Father Height" },
+                    },
+                    y: { title: { display: true, text: "Son Height" } },
+                  },
+                },
+              });
+            };
+            showChart(json);
+          };
+          reader.readAsArrayBuffer(file);
+        }
+      });
+    </script>
+  </body>
+</html>

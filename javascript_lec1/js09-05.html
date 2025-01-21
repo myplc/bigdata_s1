@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로컬스토리지</title>
+  </head>
+  <body>
+    <h1>로컬스토리지활용</h1>
+    이름:
+    <input type="text" class="in1" />
+    <br />
+    나이:
+    <input type="text" class="in2" />
+    <br />
+    주소:
+    <input type="text" class="in3" />
+    <br />
+    <button id="save">저장하기</button>
+    <hr />
+    <button id="load">불러오기</button>
+    <button id="del">삭제하기</button>
+
+    <script>
+      const in1 = document.querySelector(".in1");
+      const in2 = document.querySelector(".in2");
+      const in3 = document.querySelector(".in3");
+      const btnSave = document.querySelector("#save");
+
+      btnSave.addEventListener("click", () => {
+        const ori = { name: in1.value, age: in2.value, address: in3.value };
+        localStorage.setItem("my", JSON.stringify(ori));
+        alert("저장되었습니다.");
+      });
+    </script>
+  </body>
+</html>
