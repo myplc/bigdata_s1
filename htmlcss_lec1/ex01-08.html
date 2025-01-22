@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mark / small</title>
+    <title>드롭다운</title>
   </head>
   <body>
     <h3><a href="index.html">홈으로</a></h3>
-    이 세상에서 가장 중요한건 <mark>자신</mark>입니다. <br />
-    <small> Copyright@ KYS Corp. </small>
-    <p>물의 화학식은 H<sub>2</sub>O</p>
-    <p>100m<sup>2</sup></p>
+    <!-- form>select#path>option*4 -->
+    <form action="#">
+      <select name="path" id="path">
+        <option value="blog">블로그</option>
+        <option value="search">검색</option>
+        <option value="sns">sns</option>
+        <option value="etc">기타</option>
+      </select>
+      <button type="submit">전송</button>
+    </form>
   </body>
 </html>
