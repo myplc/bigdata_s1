@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hover</title>
+    <style>
+        table {
+            border: none
+        }
+
+        td {
+            background-color: darkslategray;
+            color: darkslategray;
+            text-align: center;
+            font-size: 2rem;
+            width: 33%;
+            height: 33%;
+            transition: all 0.8s ease
+        }
+
+        .h1:hover {
+            background-color: antiquewhite;
+            transform: scale(0.8)
+        }
+
+        .h2:hover {
+            background-color: azure;
+            transform: scale(0.8)
+        }
+
+        .h3:hover {
+            background-color: coral;
+            transform: scale(0.8)
+        }
+
+        .h4:hover {
+            background-color: aquamarine;
+            transform: scale(0.8)
+        }
+
+        .h5:hover {
+            background-color: aqua;
+            transform: scale(0.8)
+        }
+
+        .h6:hover {
+            background-color: chocolate;
+            transform: scale(0.8)
+        }
+
+        .h7:hover {
+            background-color: coral;
+            transform: scale(0.8)
+        }
+
+        .h8:hover {
+            background-color: blueviolet;
+            transform: scale(0.8)
+        }
+
+        .h9:hover {
+            background-color: darkgray;
+            transform: scale(0.8)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>8. hover 가상선택자</h1>
+    <!--    table>(tr>td.h$*3)*3-->
+    <table align="center" border="1" width="400" height="400">
+        <tr>
+            <td class="h1">가자</td>
+            <td class="h2">배고프다</td>
+            <td class="h3">어디로</td>
+        </tr>
+        <tr>
+            <td class="h4">집으로</td>
+            <td class="h5">달려라</td>
+            <td class="h6">힘차게</td>
+        </tr>
+        <tr>
+            <td class="h7">ㅋㅋㅋ</td>
+            <td class="h8">넘어짐</td>
+            <td class="h9">아야</td>
+        </tr>
+    </table>
+</body>
+
+</html>
