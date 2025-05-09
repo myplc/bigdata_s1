@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat UI 실습</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+            background: #e5e5e5;
+            padding: 2rem;
+        }
+
+        .chat-container {
+            width: 600px;
+
+            height: 500px;
+            margin: auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 1.2rem;
+            align-items: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://via.placeholder.com/40');
+            background-size: cover;
+            margin: 0 10px;
+            flex-shrink: 0;
+        }
+
+        .bubble {
+            width: 300px;
+            position: relative;
+            background: #f0f0f0;
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            /* Added left property */
+            /* max-width: 65%; */
+            word-break: break-word;
+        }
+
+        .user .bubble {
+            background: #ffdc13;
+        }
+
+        .bot .bubble::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            /* border: 8px solid transparent; */
+            border-right-color: #f0f0f0;
+        }
+
+        .user .bubble::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: -8px;
+            /* border: 8px solid transparent; */
+            border-left-color: #d0ebff;
+        }
+
+        .name {
+            font-size: 0.8rem;
+            color: #555;
+            margin: 0 10px 2px;
+        }
+
+        .bot .name {
+            text-align: left;
+        }
+
+        .user .name {
+            text-align: right;
+        }
+
+        /* 공통 */
+        .chat-container::-webkit-scrollbar {
+            width: 15px;
+            height: 12px;
+        }
+
+        /* 세로 스크롤바 */
+        .chat-container::-webkit-scrollbar:vertical {
+            background: #f0f0f0;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb:vertical {
+            background: #6ea5bc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="message bot">
+            <div class="avatar"></div>
+            <div>
+                <div class="name">myChatBot</div>
+                <div class="bubble">안녕하세요. 무엇을 도와드릴까요?</div>
+            </div>
+        </div>
+
+        <div class="message user">
+            <div>
+                <div class="name">나</div>
+                <div class="bubble">Flex로 채팅 화면을 만들 수 있을까요?</div>
+            </div>
+            <div class="avatar"></div>
+        </div>
+
+        <div class="message bot">
+            <div class="avatar"></div>
+            <div>
+                <div class="name">myChatBot</div>
+                <div class="bubble">물론이죠! Flex를 이용하면 간단히 만들 수 있습니다.</div>
+            </div>
+        </div>
+
+        <div class="message user">
+            <div>
+                <div class="name">나</div>
+                <div class="bubble">그럼 입력창까지 붙이면 채팅 앱처럼 되겠네요!</div>
+            </div>
+            <div class="avatar"></div>
+        </div>
+
+        <div class="message bot">
+            <div class="avatar"></div>
+            <div>
+                <div class="name">myChatBot</div>
+                <div class="bubble">네, 나중에 JS로 입력처리까지 붙이면 완전한 메시징 앱이 됩니다!</div>
+            </div>
+        </div>
+        <div class="message user">
+            <div>
+                <div class="name">나</div>
+                <div class="bubble">아.. 할게 많네요. 참...앞으로 배울께 많아요.. ㅠㅠ</div>
+            </div>
+            <div class="avatar"></div>
+        </div>
+        <div class="message bot">
+            <div class="avatar"></div>
+            <div>
+                <div class="name">myChatBot</div>
+                <div class="bubble">그래도 해볼만 할꺼에요. 참쉽죠?</div>
+            </div>
+        </div>
+        <div class="message user">
+            <div>
+                <div class="name">나</div>
+                <div class="bubble">혼날래요?</div>
+            </div>
+            <div class="avatar"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

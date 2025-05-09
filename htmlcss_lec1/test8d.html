@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>flex-basis vs flex-grow vs flex-shrink</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: sans-serif;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 10px;
+      background: #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+
+
+    .box {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      min-width: 0;
+    }
+
+    .box1 {
+      background: #3498db;
+    }
+
+    .box2 {
+      background: #2ecc71;
+    }
+
+    .box3 {
+      background: #e67e22;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>1️⃣ flex-basis 비교 (기본 너비 차이)</h2>
+  <div class="container">
+    <div class="box box1" style="flex: 0 1 100px;">100px</div>
+    <div class="box box2" style="flex: 0 1 200px;">200px</div>
+    <div class="box box3" style="flex: 0 1 300px;">300px</div>
+  </div>
+
+  <h2>2️⃣ flex-grow 비교 (남은 공간 비율)</h2>
+  <div class="container">
+    <div class="box box1" style="flex: 1 1 0;">1</div>
+    <div class="box box2" style="flex: 2 1 0;">2</div>
+    <div class="box box3" style="flex: 3 1 0;">3</div>
+  </div>
+
+  <h2>3️⃣ flex-shrink 비교 (공간 부족 시 줄어드는 정도)</h2>
+  <div class="container">
+    <div class="box box1" style="flex: 0 1 300px;">shrink: 1</div>
+    <div class="box box2" style="flex: 0 2 300px;">shrink: 2</div>
+    <div class="box box3" style="flex: 0 3 300px;">shrink: 3</div>
+  </div>
+
+</body>
+
+</html>

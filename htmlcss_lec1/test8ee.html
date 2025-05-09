@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex-grow + flex-basis 비교</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: sans-serif;
+            background: #f7f7f7;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+            background: #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        .box {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .box1 {
+            background: #3498db;
+        }
+
+        .box2 {
+            background: #2ecc71;
+        }
+
+        .box3 {
+            background: #e67e22;
+        }
+
+        .label {
+            text-align: center;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>1️⃣ flex-basis: 0px (grow 비율만 적용)</h2>
+    <div class="label">flex: 1 1 0 / 2 1 0 / 3 1 0</div>
+    <div class="container">
+        <div class="box box1" style="flex: 1 1 0;">1</div>
+        <div class="box box2" style="flex: 2 1 0;">2</div>
+        <div class="box box3" style="flex: 3 1 0;">3</div>
+    </div>
+
+    <h2>2️⃣ flex-basis: 100px (기본 너비 + grow 적용)</h2>
+    <div class="label">flex: 1 1 100px / 2 1 100px / 3 1 100px</div>
+    <div class="container">
+        <div class="box box1" style="flex: 1 1 100px;">1</div>
+        <div class="box box2" style="flex: 2 1 100px;">2</div>
+        <div class="box box3" style="flex: 3 1 100px;">3</div>
+    </div>
+
+</body>
+
+</html>

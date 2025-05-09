@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex-shrink 예제</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 10px;
+            max-width: 100%;
+            border: 2px dashed gray;
+            overflow: hidden;
+        }
+
+        .box {
+            flex-basis: 300px;
+            flex-grow: 0;
+            height: 100px;
+            background-color: steelblue;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 1.2rem;
+            min-width: 0;
+        }
+
+        .box1 {
+            flex-shrink: 1;
+        }
+
+        .box2 {
+            flex-shrink: 2;
+        }
+
+        .box3 {
+            flex-shrink: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>flex-shrink 예제 (브라우저 좁힐 때 차이 확인)</h3>
+    <div class="container">
+        <div class="box box1">shrink 1</div>
+        <div class="box box2">shrink 2</div>
+        <div class="box box3">shrink 3</div>
+    </div>
+</body>
+
+</html>

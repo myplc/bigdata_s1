@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Plans</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Nanum Gothic', sans-serif;
+            background: #eef2f3;
+            padding: 4rem 1rem;
+        }
+
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            width: 280px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2196f3;
+        }
+
+        .features {
+            margin: 1.5rem 0;
+            color: #666;
+        }
+
+        .features li {
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+
+        .btn {
+            background: #2196f3;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1976d2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pricing-container">
+        <div class="card">
+            <h2>Basic</h2>
+            <div class="price">₩9,900</div>
+            <ul class="features">
+                <li>✔ 기본 기능 제공</li>
+                <li>✔ 이메일 지원</li>
+                <li>✖ 고급 분석 도구</li>
+            </ul>
+            <a href="#" class="btn">가입하기</a>
+        </div>
+
+        <div class="card">
+            <h2>Premium</h2>
+            <div class="price">₩29,900</div>
+            <ul class="features">
+                <li>✔ 모든 기본 기능</li>
+                <li>✔ 실시간 분석</li>
+                <li>✔ 우선 지원</li>
+            </ul>
+            <a href="#" class="btn">가입하기</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

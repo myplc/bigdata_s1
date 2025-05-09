@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>플랙스 wrap</title>
+  <title>Document</title>
   <style>
     .container {
       width: 300px;
@@ -15,27 +15,29 @@
     }
 
     .container>div {
-      background-color: rgb(66, 109, 110);
+      background-color: #0a677f;
       width: 100px;
       height: 100px;
-      /* border: 1px solid white; */
+      /* border: 1px solid red; */
+      /* box-sizing: border-box; */
     }
 
     .container>div:nth-of-type(2),
     .container>div:nth-of-type(5) {
-      align-self: flex-end;
+      align-self: end;
     }
   </style>
 </head>
 
 <body>
+  <!-- div.container>div*6 -->
   <div class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
   </div>
 </body>
 

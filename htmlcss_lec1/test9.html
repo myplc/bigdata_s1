@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flex 대시보드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4a90e2;
+            padding: 15px 30px;
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background: #2f3542;
+            color: white;
+            padding: 1rem;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            margin: 0 0 1rem;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: #70a1ff;
+        }
+
+        .main {
+            flex: 1;
+            background: #f1f2f6;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .main h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">MySite</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>메뉴</h2>
+            <a href="#">대시보드</a>
+            <a href="#">사용자 관리</a>
+            <a href="#">설정</a>
+        </div>
+        <div class="main">
+            <h1>Flex 기반 대시보드</h1>
+            <p>이 페이지는 레이아웃 기본 구성페이지입니다. 좌측 메뉴는 고정이고, 위측 우측 콘텐츠는 유연하게 확장됩니다.</p>
+        </div>
+    </div>
+</body>
+
+</html>
