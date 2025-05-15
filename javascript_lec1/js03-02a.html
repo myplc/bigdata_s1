@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            background: url("https://t1.daumcdn.net/cfile/tistory/13045F404D7C365D23");
+            width: 155px;
+            height: 154px;
+        }
+
+        .zzi {
+            background-position: -136px 0;
+            height: 154px;
+            width: 141px;
+        }
+
+        .bba {
+            background-position: -280px 0;
+            width: 155px;
+            height: 154px;
+        }
+    </style>
+    <!-- dayjs CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+
+<body>
+    <script>
+        const now = dayjs();
+        const ms = now.get("ms");
+        const random = ms % 3;
+
+        let className = '';
+        if (random === 0) className = 'muk';
+        if (random === 1) className = 'zzi';
+        if (random === 2) className = 'bba';
+
+        const div = document.createElement('div');
+        div.className = className;
+        document.body.appendChild(div);
+
+        console.log(now);
+    </script>
+</body>
+
+</html>
