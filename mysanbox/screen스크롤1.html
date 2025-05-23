@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>세련된 이미지 슬라이더</title>
+    <style>
+        #container {
+            width: 100%;
+            max-width: 320px;
+            margin: 40px auto;
+            overflow: hidden;
+            border: 2px solid #aaa;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        #scroll-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #scroll-content img {
+            height: 200px;
+            object-fit: cover;
+            border-right: 2px solid #eee;
+            flex-shrink: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            background-color: #444;
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="scroll-content">
+            <img src=https://placecats.com/300/200" alt="1">
+            <img src=https://placecats.com/320/200" alt="2">
+            <img src=https://placecats.com/310/200" alt="3">
+            <img src=https://placecats.com/290/200" alt="4">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="btn-left" onclick="sLeft()">← 이전</button>
+        <button id="btn-right" onclick="sRight()">다음 →</button>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const content = document.getElementById("scroll-content");
+        const btnLeft = document.getElementById("btn-left");
+        const btnRight = document.getElementById("btn-right");
+
+        let index = 0;
+        const images = content.children;
+        let positions = [];
+
+        window.addEventListener("load", () => {
+            // 이미지 너비 누적 위치 계산
+            let pos = 0;
+            positions = [];
+            for (let img of images) {
+                positions.push(pos);
+                pos += img.offsetWidth;
+            }
+            updateButtons();
+        });
+
+        function sLeft() {
+            if (index > 0) {
+                index--;
+                content.style.transform = `translateX(-${positions[index]}px)`;
+                updateButtons();
+            }
+        }
+
+        function sRight() {
+            if (index < positions.length - 1) {
+                index++;
+                content.style.transform = `translateX(-${positions[index]}px)`;
+                updateButtons();
+            }
+        }
+
+        function updateButtons() {
+            btnLeft.disabled = index === 0;
+            btnRight.disabled = index === positions.length - 1;
+        }
+    </script>
+</body>
+
+</html>
