@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>테트리스 도형 이동 및 회전</title>
+    <style>
+        canvas {
+            background-color: #f0f0f0;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tetris" width="200" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("tetris");
+        const ctx = canvas.getContext("2d");
+        const gridSize = 20; // 블록 하나의 크기 (20x20)
+
+        // 초기 도형 (L자)
+        let piece = {
+            x: 4,
+            y: 0,
+            shape: [
+                [1, 0],
+                [1, 1],
+                [1, 0]
+            ]
+        };
+
+        // 회전 함수
+        function rotate(matrix) {
+            return matrix[0].map((_, i) => matrix.map(row => row[i])).reverse();
+        }
+
+        // 도형 그리기
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "blue";
+            piece.shape.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value) {
+                        ctx.fillRect((piece.x + x) * gridSize, (piece.y + y) * gridSize, gridSize, gridSize);
+                        ctx.strokeRect((piece.x + x) * gridSize, (piece.y + y) * gridSize, gridSize, gridSize);
+                    }
+                });
+            });
+        }
+
+        // 키보드 제어
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+                piece.x--;
+            } else if (e.key === "ArrowRight") {
+                piece.x++;
+            } else if (e.key === "ArrowDown") {
+                piece.y++;
+            } else if (e.key === "ArrowUp") {
+                piece.shape = rotate(piece.shape);
+            }
+            draw();
+        });
+
+        draw(); // 초기화
+    </script>
+</body>
+
+</html>
