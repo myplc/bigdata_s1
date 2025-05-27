@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 반응 예제</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 390vh;
+            /* 스크롤 길이 확보 */
+        }
+
+        .scroll-text {
+            position: fixed;
+            top: 250px;
+            left: 40%;
+            /* transform: translateX(-50%); */
+            font-size: 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .left-menu,
+        .right-menu {
+            position: fixed;
+            width: 150px;
+            height: 250px;
+            background-color: #ad9393;
+            color: white;
+            padding: 20px;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+
+        .left-menu {
+            top: 100px;
+            left: -200px;
+            border-radius: 10px;
+            background-color: #2858939c;
+        }
+
+        /* 추가 */
+        .left-menu2 {
+            top: 530px;
+            width: 390px;
+            height: 180px;
+            left: -200px;
+            border-radius: 10px;
+            background-color: #38952d9c;
+        }
+
+
+        .right-menu {
+            top: 100px;
+            width: 250px;
+            right: -200px;
+            border-radius: 10px;
+        }
+
+        .end-menu {
+            position: fixed;
+            color: white;
+            padding: 20px;
+            transition: all 0.5s ease;
+            opacity: 0;
+            width: 10%;
+            height: 150px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #cb4b8b9c;
+            text-align: center;
+            font-size: 2rem;
+            top: 90%;
+        }
+
+        /* 추가 가운데 정렬 */
+        .end-line {
+            display: flex;
+            justify-content: center;
+        }
+
+        .show-left {
+            left: 10px;
+            opacity: 1;
+        }
+
+        /* 추가2 */
+        .show-left2 {
+            left: 10px;
+            opacity: 1;
+        }
+
+        .show-right {
+            right: 10px;
+            opacity: 1;
+        }
+
+        .show-end {
+            top: 90%;
+            opacity: 1;
+            width: 100%;
+        }
+
+        section {
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #39d69a;
+        }
+
+        section:nth-child(odd) {
+            background-color: #f0f0f0;
+            color: #b08c28;
+        }
+
+        section:nth-child(even) {
+            background-color: #d0e0ff;
+            color: #286a88;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 고정 텍스트 -->
+    <div class="scroll-text" id="scrollText">스크롤을 내려보세요</div>
+
+    <!-- 좌우 메뉴 -->
+    <div class="left-menu" id="leftMenu">왼쪽 메뉴
+
+    </div>
+    <div class="right-menu" id="rightMenu">오른쪽 메뉴
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="end-line">
+        <div class="end-menu" id="endMenu">감사합니다!
+        </div>
+    </div>
+    <!-- 스크롤 구간 -->
+    <section>1단계</section>
+    <section>2단계</section>
+    <section>3단계</section>
+    <section>4단계</section>
+    <section>End</section>
+
+    <script>
+        const scrollText = document.getElementById("scrollText");
+        const leftMenu = document.getElementById("leftMenu");
+        const rightMenu = document.getElementById("rightMenu");
+        const endMenu = document.getElementById("endMenu");
+
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+            console.log(scrollY);
+            // 스크롤 위치에 따른 텍스트 변경
+            if (scrollY < 900) {
+                scrollText.textContent = "스크롤을 내려보세요";
+            } else if (scrollY < 1700) {
+                scrollText.textContent = "지금은 2단계입니다";
+            } else if (scrollY < 2500) {
+                scrollText.textContent = "3단계입니다!";
+            } else {
+                scrollText.textContent = "마지막 구간이에요!";
+            }
+
+            // 특정 위치에서 메뉴 등장
+            if (scrollY > 400 && scrollY < 1800) {
+                leftMenu.classList.add("show-left");
+                leftMenu.classList.remove("left-menu2");
+                leftMenu.innerHTML = `원래 메뉴 <ol><li></li><li></li><li></li><li></li><li></li><li></li></ol>`;
+            }
+            else if (scrollY < 400) {
+                leftMenu.classList.remove("show-left");
+            }
+            if (scrollY > 1300 && scrollY < 3200) {
+                rightMenu.classList.add("show-right");
+            } else {
+                rightMenu.classList.remove("show-right");
+            }
+
+            /* 추가2 */
+            if (scrollY > 2000 && scrollY < 3000) {
+                leftMenu.classList.add("show-left");
+                leftMenu.classList.add("left-menu2");
+                leftMenu.innerHTML = "아래쪽 변형 메뉴 <ul><li></li><li></li><li></li><li></ul>";
+            } else if (scrollY > 2800) {
+                leftMenu.classList.remove("show-left");
+            }
+
+
+
+            if (scrollY > 3200) {
+                endMenu.classList.add("show-end");
+            } else {
+                endMenu.classList.remove("show-end");
+            }
+        });
+    </script>
+</body>
+
+</html>
