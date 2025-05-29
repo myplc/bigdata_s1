@@ -97,19 +97,19 @@
     </div>
 
     <script>
+        // JavaScript
         const container = document.getElementById("container");
         const content = document.getElementById("scroll-content");
         const btnLeft = document.getElementById("btn-left");
         const btnRight = document.getElementById("btn-right");
 
         let index = 0;
-        const images = content.children;
         let positions = [];
 
         window.addEventListener("load", () => {
             let pos = 0;
             positions = [];
-            for (let img of images) {
+            for (let img of content.children) {
                 positions.push(pos);
                 pos += img.offsetWidth;
             }
@@ -137,45 +137,43 @@
             btnRight.disabled = index === positions.length - 1;
         }
 
-        // --- 추가: 드래그/터치 슬라이드 기능 ---
-        let startX = 0;
-        let isDragging = false;
+        // 🎯 마우스 드래그 슬라이드 개선
+        // let isMouseDown = false;
+        // let startX = 0;
 
-        content.addEventListener("mousedown", (e) => {
-            startX = e.clientX;
-            isDragging = true;
+        // content.addEventListener("mousedown", (e) => {
+        //     isMouseDown = true;
+        //     startX = e.clientX;
+        // });
+
+        // content.addEventListener("mousemove", (e) => {
+        //     if (!isMouseDown) return;
+        //     const diff = e.clientX - startX;
+        //     if (Math.abs(diff) > 50) {
+        //         if (diff > 0) sLeft();
+        //         else sRight();
+        //         isMouseDown = false; // 한 번만 동작하게
+        //     }
+        // });
+
+        document.addEventListener("mouseup", () => {
+            isMouseDown = false;
         });
 
-        content.addEventListener("mousemove", (e) => {
-            if (!isDragging) return;
-            const diff = e.clientX - startX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) sLeft();
-                else sRight();
-                isDragging = false;
-            }
-        });
-
-        content.addEventListener("mouseup", () => {
-            isDragging = false;
-        });
-
-        content.addEventListener("mouseleave", () => {
-            isDragging = false;
-        });
-
+        // 🎯 터치 슬라이드 개선
         content.addEventListener("touchstart", (e) => {
             startX = e.touches[0].clientX;
         });
 
-        content.addEventListener("touchmove", (e) => {
-            const diff = e.touches[0].clientX - startX;
+        content.addEventListener("touchend", (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = endX - startX;
             if (Math.abs(diff) > 50) {
                 if (diff > 0) sLeft();
                 else sRight();
-                startX = e.touches[0].clientX; // 반복 스와이프 대응
             }
         });
+
     </script>
 </body>
 

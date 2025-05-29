@@ -202,12 +202,15 @@
             }
 
 
+            const toTop = () => window.scrollTo(0, 0);
 
             if (scrollY > 3200) {
                 endMenu.classList.add("show-end");
+                setTimeout(toTop, 2000);
             } else {
                 endMenu.classList.remove("show-end");
             }
+
         });
     </script>
 </body>
