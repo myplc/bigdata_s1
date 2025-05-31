@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="menu-item" data-index="1" data-label="홈">홈</li>
+        <li class="menu-item" data-index="2" data-label="소개">소개</li>
+        <li class="menu-item" data-index="3" data-label="연락처">연락처</li>
+    </ul>
+
+
+    <script>
+        const items = document.querySelectorAll(".menu-item");
+
+        items.forEach((item) => {
+            console.log(`index: ${item.dataset.index}, label: ${item.dataset.label}`);
+        });
+
+
+
+    </script>
+</body>
+
+</html>

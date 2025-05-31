@@ -28,7 +28,7 @@
             flex-shrink: 0;
         }
 
-        .controls {
+        /* .controls {
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
@@ -45,7 +45,7 @@
             color: white;
             border-radius: 8px;
             transition: background-color 0.3s ease;
-        }
+        } */
 
         .controls button:disabled {
             background-color: #aaa;
@@ -81,14 +81,19 @@
 
         window.addEventListener("load", () => {
             // 이미지 너비 누적 위치 계산
+            // let pos = 0;
+            // positions = [];
+            // for (let img of images) {
+            //     positions.push(pos);
+            //     pos += img.offsetWidth;
+            // }
             let pos = 0;
-            positions = [];
-            console.log(images)
-            for (let img of images) {
+            let positions = [];
+
+            images.forEach(img => {
                 positions.push(pos);
                 pos += img.offsetWidth;
-                console.log(pos, img.offsetWidth)
-            }
+            });
             updateButtons();
         });
 

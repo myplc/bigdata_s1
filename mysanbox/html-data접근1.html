@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="user" data-name="홍길동" data-age="23"></div>
+    <script>
+        const user = document.getElementById("user");
+        console.log(user.dataset.name);  // "홍길동"
+        console.log(user.dataset.age);   // "23"
+
+    </script>
+</body>
+
+</html>

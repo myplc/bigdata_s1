@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="user-data" data-info='{"name":"홍길동", "age":23}'></div>
+
+
+
+    <script>
+        const el = document.getElementById("user-data");
+        const info = JSON.parse(el.dataset.info);
+        console.log(info); // { name: "홍길동", age: 23 }
+        console.log(info.name);  // "홍길동"
+        console.log(info.age);   // 23
+
+
+
+    </script>
+</body>
+
+</html>

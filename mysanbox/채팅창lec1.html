@@ -86,7 +86,7 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
-            flex: 5;
+            flex: 6;
         }
 
         .chat-input {
@@ -102,10 +102,10 @@
             outline: none;
             border: none;
             width: 70%;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: rgb(72, 72, 164);
             resize: none;
-            background-color: #fcffe4;
+            background-color: #fffcfc;
         }
 
         button {
@@ -185,8 +185,10 @@
 
             if (userMessage) {
                 const userDiv = document.createElement('div');
-                userDiv.className = 'message user';
-                userDiv.innerHTML = `<div><div class="name">나</div><div class="bubble">${userMessage}</div></div>`;
+                // userDiv.className = 'message user';
+                // userDiv.innerHTML = `<div><div class="name">나</div><div class="bubble">${userMessage}</div></div>`;
+                userDiv.className = 'message bot';
+                userDiv.innerHTML = `<div><div class="name">myBot</div><div class="bubble">${userMessage}</div></div>`;
                 chatContainer.appendChild(userDiv);
                 textarea.value = ''; // 입력창 비우기
                 chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤을 맨 아래로 이동

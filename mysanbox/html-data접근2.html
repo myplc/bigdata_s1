@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="account" data-user-id="abc123" data-role-type="admin"></div>
+
+    <script>
+        const account = document.getElementById("account");
+        console.log(account.dataset.userId);   // "abc123"
+        console.log(account.dataset.roleType); // "admin"
+
+
+    </script>
+</body>
+
+</html>
